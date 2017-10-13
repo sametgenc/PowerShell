@@ -1,23 +1,17 @@
-#
 #Powershell
 
 Powershell altypapisi kullanarak, kullanicilara Command Line Interface (CLI) saglamak amaciyla gelistirilmis
 bir linux bash benzeri bir shelldir.
-Nesne tabanlidir. Çalisan komutlar standart çalistirilabilir (executable) dosyalar seklinde degilde .NET fonksiyonlari seklinde 
-çalismaktadir.
+Nesne tabanlidir. Ã‡alisan komutlar standart Ã§alistirilabilir (executable) dosyalar seklinde degilde .NET fonksiyonlari seklinde 
+Ã§alismaktadir.
 
-> Powershell .NET kütüphanesi kullanmasinin yaninda bu kütüphaneden faydalanarak script (betik) yazilabilmesi sistemi yönetmek adina büyük rahatlik saglar.
+> Powershell .NET kÃ¼tÃ¼phanesi kullanmasinin yaninda bu kÃ¼tÃ¼phaneden faydalanarak script (betik) yazilabilmesi sistemi yÃ¶netmek adina bÃ¼yÃ¼k rahatlik saglar.
 
+#Cmdlets 
 
+Powershellin komut setidir. Powershell Ã¼zerinden *Get-Command* diyerek tum komutlari listelemek mÃ¼mkÃ¼ndÃ¼r.
 
-##
-Cmdlets 
-
-Powershellin komut setidir. Powershell üzerinden *Get-Command* diyerek tum komutlari listelemek mümkündür.
-
-
-Powershell üzerinde script çalistirabilmek için;
-
+Powershell Ã¼zerinde script Ã§alistirabilmek iÃ§in;
 
 	Set-ExecutionPolicy RemoteSigned 
 
@@ -25,104 +19,82 @@ veya
 
 	Set-ExecutionPolicy Unrestricted
 
-komutlarindan biri kullanilmalidir. Yine bunun haricinde scriptte kullandigimiz bazi komutlar (network interfaces vb.) yönetici yetkisi olmadan çalismayacagi için,
-uygulamayi yönetici yetkisiyle açmamiz gerekir.
+komutlarindan biri kullanilmalidir. Yine bunun haricinde scriptte kullandigimiz bazi komutlar (network interfaces vb.) yÃ¶netici yetkisi olmadan Ã§alismayacagi iÃ§in,
+uygulamayi yÃ¶netici yetkisiyle aÃ§mamiz gerekir.
 
-##Script Yapisi
+#Script YapÄ±sÄ±
 
-
-*Systeminfo* komutuyla sisteme ait bilgileri çekebiliriz.
+*Systeminfo* komutuyla sisteme ait bilgileri Ã§ekebiliriz.
 
 *findstr* ile aramlarda filtrelemeler yapip istedigimiz satirlarin gelmesini sagliyoruz.
  Linuxtaki *grep* mantigi.
 
 	Get-WmiObject -class Win32_NetworkAdapterConfiguration 
 
-ile cihazin ip bilgileri çekiyoruz.
-
-
+ile cihazin ip bilgileri Ã§ekiyoruz.
 
 	netstat 
 
-ile sistem üzerindeki tüm baglantilari listeler.
-
+ile sistem Ã¼zerindeki tÃ¼m baglantilari listeler.
 
 	netstat -r 
 
-ile routing tablolarini çekiyoruz.
-
+ile routing tablolarini Ã§ekiyoruz.
 
 	apr -a 
 
-ile arp tablolarini çekiyoruz.
+ile arp tablolarini Ã§ekiyoruz.
 
 	Get-AdGroup 
 
-ile sistem grup bilgileri çekilir.
-
+ile sistem grup bilgileri Ã§ekilir.
 
 	[System.Security.Principal.WindowsIdentity]::GetCurrent().Name  
 
-ile aktif olan kullanici bilgisi çekilir.
-
+ile aktif olan kullanici bilgisi Ã§ekilir.
 
 	Get-AdUser 
 
-ile kullanici bilgileri çekilir.
-
+ile kullanici bilgileri Ã§ekilir.
 
 	Get-WmiObject -class win32_groupuser | Where-Object { $_.GroupComponent -match 'administrators' -and ($_.GroupComponent -match "Domain=`"$env:COMPUTERNAME`"")}
 
-
-ile admin olan kullanicilar çekilir.
-
+ile admin olan kullanicilar Ã§ekilir.
 
 	gwmi win32_LoggedOnUser 
 
-ile daha önce login islemi gerçeklesirilmis kullanicilar çekilir.
-
-
+ile daha Ã¶nce login islemi gerÃ§eklesirilmis kullanicilar Ã§ekilir.
 
 	Get-History 
 
-ile komut geçmisi çekilir.
-
-
+ile komut geÃ§misi Ã§ekilir.
 
 	Get-Process 
 
-ile sisteme ait süreçler çekilir.
-
+ile sisteme ait sÃ¼reÃ§ler Ã§ekilir.
 
 	Get-Service 
 
-ile sisteme ait servisler çekilir.
-
-
+ile sisteme ait servisler Ã§ekilir.
 
 	Get-ScheduledTask 
 
-ile zamanlanmis görevlerin listesini verir.
+ile zamanlanmis gÃ¶revlerin listesini verir.
 
 
 	tasklist 
 
-ile sistemde çalisan programlar görüntülenir.
+ile sistemde Ã§alisan programlar gÃ¶rÃ¼ntÃ¼lenir.
 
-
-##Active Directory
-
+#Active Directory
 
 Bulunan networkte hizmet veren, networke ait cihazlarin adlarini ve bilgilerini tutan bir veritabanidir. Domain, Active
-Directory’nin en temel bilesenidir.
-
-
+Directoryâ€™nin en temel bilesenidir.
 
 	Get-ADDomain 
 
-ile domaine ait bilgiler görüntülenir.
-
+ile domaine ait bilgiler gÃ¶rÃ¼ntÃ¼lenir.
 
 	Get-ADDomainController 
 
-ile domain contoller a ait bilgiler görüntülenir.
+ile domain contoller a ait bilgiler gÃ¶rÃ¼ntÃ¼lenir.
