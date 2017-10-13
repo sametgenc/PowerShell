@@ -1,4 +1,4 @@
-#Powershell
+# Powershell
 
 Powershell altypapisi kullanarak, kullanicilara Command Line Interface (CLI) saglamak amaciyla gelistirilmis
 bir linux bash benzeri bir shelldir.
@@ -7,7 +7,7 @@ Nesne tabanlidir. Çalisan komutlar standart çalistirilabilir (executable) dosy
 
 > Powershell .NET kütüphanesi kullanmasinin yaninda bu kütüphaneden faydalanarak script (betik) yazilabilmesi sistemi yönetmek adina büyük rahatlik saglar.
 
-#Cmdlets 
+# Cmdlets 
 
 Powershellin komut setidir. Powershell üzerinden *Get-Command* diyerek tum komutlari listelemek mümkündür.
 
@@ -22,7 +22,7 @@ veya
 komutlarindan biri kullanilmalidir. Yine bunun haricinde scriptte kullandigimiz bazi komutlar (network interfaces vb.) yönetici yetkisi olmadan çalismayacagi için,
 uygulamayi yönetici yetkisiyle açmamiz gerekir.
 
-#Script Yapısı
+# Script Yapısı
 
 *Systeminfo* komutuyla sisteme ait bilgileri çekebiliriz.
 
@@ -86,7 +86,7 @@ ile zamanlanmis görevlerin listesini verir.
 
 ile sistemde çalisan programlar görüntülenir.
 
-#Active Directory
+# Active Directory
 
 Bulunan networkte hizmet veren, networke ait cihazlarin adlarini ve bilgilerini tutan bir veritabanidir. Domain, Active
 Directory’nin en temel bilesenidir.
